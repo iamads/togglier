@@ -17,7 +17,7 @@ def add_controller(name,password):
 	print r 
 
 
-def make_buddies(user):
+def make_buddies(user,operator):
 	xml = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <rosterItem>
 	<jid>{}</jid>
@@ -25,11 +25,16 @@ def make_buddies(user):
 </rosterItem>""".format(escape(user+"@ubuntu"))
 	headers = {'Content-Type': 'application/xml','Authorization': 'Basic YWRtaW46MTIzNDU='}
 	r = requests.post(
-	url='http://192.168.200.105:9090/plugins/userService/users/admin/roster',
+	url='http://192.168.200.105:9090/plugins/userService/users/' + operator + '/roster',
     	data=xml, headers=headers, 
     	auth=('admin', 'admin')
 	)
 	print r
 
-make_buddies("bitch")
+def friends_with_admin(user):
+	make_buddies(user,"admin")
+	make_buddies("admin",user)
 
+
+add_controller("leo","leo")
+friends_with_admin("leo")
