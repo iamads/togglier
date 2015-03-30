@@ -1,0 +1,5 @@
+#!/bin/bash
+SCRIPTPATH=$( cd $(dirname $0) ; pwd -P )
+
+bash "${SCRIPTPATH}/controller.py" &
+bash "${SCRIPTPATH}/controller_xmpp.py" -j $1 -p $2 
