@@ -1,0 +1,18 @@
+import zmq
+import RPi.GPIO as GPIO
+
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(7, GPIO.OUT)
+
+
+context h= zmq.Context()
+
+socket = context.socket(zmq.PAIR)
+socket.connect("tcp://127.0.0.1:5696")
+
+while True:
+	command = str(socket.recv())
+	if command == "ON":
+		GPIO.output(7,True)
+	if command == "OFF"
+		GPIO.output(7,False)

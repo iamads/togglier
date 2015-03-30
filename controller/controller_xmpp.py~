@@ -6,7 +6,7 @@ import zmq					#Zeromq for interprocess communication
 import sleekxmpp				#For xmpp communication
 
 ### IP address of xmpp server
-ip = "192.168.43.245"
+ip = "192.168.200.112"
 
 context = zmq.Context()
 
