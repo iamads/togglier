@@ -11,6 +11,9 @@ bash ${SCRIPTPATH}/initiate.sh ${UserId} ${pass}
 EOM
 
 chmod 755 /etc/init.d/superscript
+chmod 755 ${SCRIPTPATH}/controller.py
+chmod 755 ${SCRIPTPATH}/controller_xmpp.py
+chmod 755 ${SCRIPTPATH}/initiate.sh
 update-rc.d superscript defaults
 
 apt-get update
