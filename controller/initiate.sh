@@ -5,5 +5,5 @@ It starts the controller_xmpp.py which handles the xmpp communication
 and then forwards the data to controller.py."""
 
 SCRIPTPATH=$( cd $(dirname $0) ; pwd -P )
-bash "${SCRIPTPATH}/controller.py" &
-bash "${SCRIPTPATH}/controller_xmpp.py" -j $1 -p $2 
+python "${SCRIPTPATH}/controller.py" &
+python "${SCRIPTPATH}/controller_xmpp.py" -j $1 -p $2 
