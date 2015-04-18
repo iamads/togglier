@@ -1,11 +1,17 @@
 #!/bin/bash
 read -p "Enter UserId : " UserId
 read -p "Enter Password : " pass
+
+FILE="/etc/init.d/superscript"
+
 SCRIPTPATH=$( cd $(dirname $0) ; pwd -P )
-crontab -l > mynewcron
-echo "@reboot ${SCRIPTPATH}/initiate.sh ${UserId} ${pass}" >> mynewcron
-crontab mynewcron
-rm mynewcron
+
+/bin/cat <<EOM >$FILE
+bash ${SCRIPTPATH}/initiate.sh ${UserId} ${pass}
+EOM
+
+chmod 755 /etc/init.d/superscript
+update-rc.d superscript defaults
 
 apt-get update
 apt-get install -y python-zmq python-pip
