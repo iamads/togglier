@@ -1,9 +1,11 @@
 {% extends "base.html" %}
-
+{% load staticfiles %}
+{% load bootstrap3 %}
 {% block body_block %}
 <h1>What to Toggle</h1>
 <form id="toggle_it" method="post" action="/zuke/toggle/">
     {% csrf_token %}
+    {% bootstrap_form form %}
 <input type="submit" value="Device-1" name="device_1" />
 <input type="submit" value="Device-2" name="device_2" />
 <input type="submit" value="Device-3" name="device_3" />

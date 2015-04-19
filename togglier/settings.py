@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'zuke',
     'registration',
+    'bootstrap3',
 )
 
 MIDDLEWARE_CLASSES = (
