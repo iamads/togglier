@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'zuke',
+    'registration',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -86,3 +87,9 @@ STATIC_URL = '/static/'
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
 )
+
+REGISTRATION_OPEN = 7
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = True
+LOGIN_REDIRECT_URL = '/zuke/'
+LOGIN_URL = '/accounts/login/'

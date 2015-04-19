@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
+
 # from django.shortcuts import HttpResponse
 #from zuke.forms import DevicesForm
 # Create your views here.
-
 
 def index(request):
     context_dict = {'boldmessage': "I am from context"}
@@ -14,7 +15,7 @@ def about(request):
     context_dict = {'boldmessage': "I m from about"}
     return render(request, 'zuke/about.html', context_dict)
 
-
+@login_required
 def toggle(request):
     if request.POST.get('device_1'):
         print('user clicked device 1')

@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from zuke import urls
+
 
 urlpatterns = patterns('',
                        # Examples:
@@ -9,4 +9,5 @@ urlpatterns = patterns('',
 
                        url(r'^admin/', include(admin.site.urls)),
                        url(r'^zuke/', include('zuke.urls')),
+                       (r'^accounts/', include('registration.backends.simple.urls'))
                        )
