@@ -6,18 +6,12 @@
 </head>
 <body>
 <h1>What to Toggle</h1>
-
-<form id="devices_form" method="post" action="/zuke/toggle/">
+<form id="toggle_it" method="post" action="/zuke/toggle/">
     {% csrf_token %}
-    {% for hidden in form.hidden_fields %}
-        {{ hidden }}
-    {% endfor %}
-    {% for field in form.visible_fields %}
-        {{ field.errors }}
-        {{ field.help_text }}
-        {{ field }}
-    {% endfor %}
-    <input type="submit" name="Submit" value="Toggle it">
+<input type="submit" value="Device_1" name="device_1" />
+<input type="submit" value="Device_2" name="device_2" />
+<input type="submit" value="Device_3" name="device_3" />
+<input type="submit" value="Device_4" name="device_4" />
 </form>
 </body>
 </html>

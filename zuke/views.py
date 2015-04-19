@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.shortcuts import HttpResponse
-from zuke.forms import DevicesForm
+from django.shortcuts import redirect
+# from django.shortcuts import HttpResponse
+#from zuke.forms import DevicesForm
 # Create your views here.
 
 
@@ -15,14 +16,17 @@ def about(request):
 
 
 def toggle(request):
-    if request.method == 'POST':
-        form = DevicesForm(request.POST)
-
-        if form.is_valid():
-            form.save(commit=True)
-            return index(request)
-        else:
-            print form.errors
+    if request.POST.get('device_1'):
+        print('user clicked device 1')
+        return redirect(toggle)
+    elif request.POST.get('device_2'):
+        print('user clicked device 2')
+        return redirect(toggle)
+    elif request.POST.get('device_3'):
+        print('user clicked device 3')
+        return redirect(toggle)
+    elif request.POST.get('device_4'):
+        print('user clicked device 4')
+        return redirect(toggle)
     else:
-        form = DevicesForm()
-    return render(request, 'zuke/toggle.html', {'form': form})
+        return render(request, 'zuke/toggle.html', )
