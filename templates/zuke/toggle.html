@@ -5,10 +5,10 @@
 <h1>What to Toggle</h1>
 <form id="toggle_it" method="post" action="/zuke/toggle/">
     {% csrf_token %}
-    {% bootstrap_form form %}
-<input type="submit" value="Device-1" name="device_1" />
-<input type="submit" value="Device-2" name="device_2" />
-<input type="submit" value="Device-3" name="device_3" />
-<input type="submit" value="Device-4" name="device_4" />
+
+<input type="submit" value="Device-1" name="device_1" /><br /><br />
+<input type="submit" value="Device-2" name="device_2" /><br /><br />
+<input type="submit" value="Device-3" name="device_3" /><br /><br />
+<input type="submit" value="Device-4" name="device_4" /><br /><br />
 </form>
 {% endblock %}

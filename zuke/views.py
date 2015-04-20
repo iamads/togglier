@@ -3,17 +3,16 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 
 # from django.shortcuts import HttpResponse
-#from zuke.forms import DevicesForm
+# from zuke.forms import DevicesForm
 # Create your views here.
 
 def index(request):
-    context_dict = {'boldmessage': "I am from context"}
-    return render(request, 'zuke/index.html', context_dict)
+    return render(request, 'zuke/index.html', )
 
 
 def about(request):
-    context_dict = {'boldmessage': "I m from about"}
-    return render(request, 'zuke/about.html', context_dict)
+    return render(request, 'zuke/about.html', )
+
 
 @login_required
 def toggle(request):
