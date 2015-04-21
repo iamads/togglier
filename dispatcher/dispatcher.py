@@ -13,16 +13,15 @@ context = zmq.Context()
 socket = context.socket(zmq.PAIR)
 socket.bind("tcp://127.0.0.1:5696")
 
-
 if sys.version_info < (3, 0):
     from sleekxmpp.util.misc_ops import setdefaultencoding
+
     setdefaultencoding('utf8')
 else:
     raw_input = input
 
 
 class SendMsgBot(sleekxmpp.ClientXMPP):
-
     """
     A basic SleekXMPP bot that will log in, 
     send multiple message to diferent bot
@@ -50,22 +49,23 @@ class SendMsgBot(sleekxmpp.ClientXMPP):
         """
         self.send_presence()
         self.get_roster()
-        
+
         """
         An empty dictionary. The session_start
         event does not provide any additional data.
         """
         while True:
             # socket connection
-           from_webapp = str(socket.recv())
-           
-           if not from_webapp:
-	       pass
-	   else:	
-               self.recepient,self.message = from_webapp.split()
-               self.send_message(mto=self.recepient,
-                          mbody=self.message,
-                          mtype='chat')
+            from_webapp = str(socket.recv())
+
+            if not from_webapp:
+                pass
+            else:
+                self.recepient, self.message = from_webapp.split()
+                self.send_message(mto=self.recepient,
+                                  mbody=self.message,
+                                  mtype='chat')
+
 
 if __name__ == '__main__':
     # Setup the command line arguments.
@@ -107,8 +107,8 @@ if __name__ == '__main__':
     # have interdependencies, the order in which you register them does
     # not matter.
     xmpp = SendMsgBot(opts.jid, opts.password, opts.to, opts.message)
-    xmpp.register_plugin('xep_0030') # Service Discovery
-    xmpp.register_plugin('xep_0199') # XMPP Ping
+    xmpp.register_plugin('xep_0030')  # Service Discovery
+    xmpp.register_plugin('xep_0199')  # XMPP Ping
 
     # If you are working with an OpenFire server, you may need
     # to adjust the SSL version used:

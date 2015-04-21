@@ -28,10 +28,10 @@ def toggle(request):
     username = request.user.username
     recepient = username + "@" + xmpp_hostname
     if request.POST.get('device_1'):
-        message = "device_1 ON"
+        message = "device_1_ON"
 
     elif request.POST.get('device_2'):
-        message = "device_1 OFF"
+        message = "device_1_OFF"
 
     elif request.POST.get('device_3'):
         message = "device_3"
@@ -42,5 +42,7 @@ def toggle(request):
 
     else:
         return render(request, 'zuke/toggle.html', )
-    socket.send(recepient+" "+message)
+    to_send = recepient+" "+message
+    print to_send
+    socket.send(to_send.encode('ascii'), copy=False)
     return redirect(toggle)

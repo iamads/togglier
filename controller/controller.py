@@ -11,7 +11,7 @@ socket.connect("tcp://127.0.0.1:5696")
 
 while True:
     command = str(socket.recv())
-    if command == "device_1 ON":
+    if command == "device_1_ON":
         GPIO.output(7, True)
-    if command == "device_1 OFF":
+    if command == "device_1_OFF":
         GPIO.output(7, False)
