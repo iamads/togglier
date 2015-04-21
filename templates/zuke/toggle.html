@@ -6,9 +6,9 @@
 <form id="toggle_it" method="post" action="/zuke/toggle/">
     {% csrf_token %}
 
-<input type="submit" value="Device-1" name="device_1" /><br /><br />
-<input type="submit" value="Device-2" name="device_2" /><br /><br />
-<input type="submit" value="Device-3" name="device_3" /><br /><br />
-<input type="submit" value="Device-4" name="device_4" /><br /><br />
+Device - 1 :<input type="submit" value="ON" name="device_1_ON" /><input type="submit" value="OFF" name="device_1_OFF" /><br /><br />
+Device - 2 :<input type="submit" value="ON" name="device_2_ON" /><input type="submit" value="OFF" name="device_2_OFF" /><br /><br />
+Device - 3 :<input type="submit" value="ON" name="device_3_ON" /><input type="submit" value="OFF" name="device_3_OFF" /><br /><br />
+Device - 4 :<input type="submit" value="ON" name="device_4_ON" /><input type="submit" value="OFF" name="device_4_OFF" /><br /><br />
 </form>
 {% endblock %}
