@@ -1,8 +1,7 @@
 import requests
 from xml.sax.saxutils import escape
-
+from xmpp_settings import xmpp_settings
 ### XMPP Server IP Address
-xmpp_server = '192.168.200.104'
 
 
 def add_controller(name, password):
@@ -14,7 +13,7 @@ def add_controller(name, password):
 
     headers = {'Content-Type': 'application/xml', 'Authorization': 'Basic YWRtaW46MTIzNDU='}
     r = requests.post(
-        url='http://' + xmpp_server +':9090/plugins/userService/users',
+        url='http://' + xmpp_settings.xmpp_ip +':9090/plugins/userService/users',
         data=xml, headers=headers,
         auth=('admin', 'admin')
     )
@@ -29,7 +28,7 @@ def make_buddies(user, operator):
 </rosterItem>""".format(escape(user + "@ubuntu"))
     headers = {'Content-Type': 'application/xml', 'Authorization': 'Basic YWRtaW46MTIzNDU='}
     r = requests.post(
-        url='http://' + xmpp_server + ':9090/plugins/userService/users/' + operator + '/roster',
+        url='http://' + xmpp_settings.xmpp_ip + ':9090/plugins/userService/users/' + operator + '/roster',
         data=xml, headers=headers,
         auth=('admin', 'admin')
     )
@@ -41,5 +40,3 @@ def friends_with_admin(user):
     make_buddies("admin", user)
 
 
-#add_controller("leo", "leo")
-#friends_with_admin("leo")

@@ -4,10 +4,8 @@ import getpass
 from optparse import OptionParser
 import zmq
 import sleekxmpp
+from xmpp_settings import xmpp_settings
 
-
-# IP address of xmpp server
-ip = "192.168.43.245"
 
 context = zmq.Context()
 
@@ -120,7 +118,7 @@ if __name__ == '__main__':
     # xmpp.ca_certs = "path/to/ca/cert"
 
     # Connect to the XMPP server and start processing XMPP stanzas.
-    if xmpp.connect((ip, 5222)):
+    if xmpp.connect((xmpp_settings.xmpp_ip, 5222)):
         xmpp.process(block=True)
         print("Done")
     else:

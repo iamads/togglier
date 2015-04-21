@@ -10,5 +10,4 @@ def user_registered_callback(sender, user, request, **kwargs):
     xmpp_handler.friends_with_admin(user=xmpp)
 
 
-
 user_registered.connect(user_registered_callback)
