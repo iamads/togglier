@@ -1,6 +1,7 @@
 import requests
 from xml.sax.saxutils import escape
 from xmpp_settings import xmpp_settings
+from  openfire_settings import password
 ### XMPP Server IP Address
 
 
@@ -15,7 +16,7 @@ def add_controller(name, password):
     r = requests.post(
         url='http://' + xmpp_settings.xmpp_ip +':9090/plugins/userService/users',
         data=xml, headers=headers,
-        auth=('admin', 'admin')
+        auth=('admin', password)
     )
     print r
 
@@ -30,7 +31,7 @@ def make_buddies(user, operator):
     r = requests.post(
         url='http://' + xmpp_settings.xmpp_ip + ':9090/plugins/userService/users/' + operator + '/roster',
         data=xml, headers=headers,
-        auth=('admin', 'admin')
+        auth=('admin', password)
     )
     print r
 
