@@ -5,8 +5,8 @@ gpio_dict = {"device_1": 7, "device_2": 12, "device_3": 16, "device_4": 5}
 GPIO.setmode(GPIO.BOARD)
 
 # GPIO.setup(7, GPIO.OUT)
-for gpio in gpio_dict.items():
-    GPIO.setup(gpio, GPIO.OUT)
+for gpio in gpio_dict.values():
+    GPIO.setup(int(gpio), GPIO.OUT)
 
 context = zmq.Context()
 
