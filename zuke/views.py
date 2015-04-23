@@ -46,7 +46,7 @@ def toggle(request):
         message = "device_3_OFF"
 
     elif request.POST.get('device_4_ON'):
-        message = "device_4_OFF"
+        message = "device_4_ON"
 
     elif request.POST.get('device_4_OFF'):
         message = "device_4_OFF"
